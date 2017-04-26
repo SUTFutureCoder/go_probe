@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee8fa6ac-4d74-45ca-9248-e9562a524919" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controllers/hardware.go" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controllers/leak.go" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controllers/performance.go" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/performance/performance.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/leak.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/performance.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/go_probe" afterPath="$PROJECT_DIR$/go_probe" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routers/router.go" afterPath="$PROJECT_DIR$/routers/router.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.tpl" afterPath="$PROJECT_DIR$/views/index.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/shell.tpl" afterPath="$PROJECT_DIR$/views/shell.tpl" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -164,8 +154,8 @@
           <file leaf-file-name="performance.tpl" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/views/performance.tpl">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="239">
-                  <caret line="26" column="21" lean-forward="true" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+                <state relative-caret-position="158">
+                  <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
                   <folding />
                 </state>
               </provider>
@@ -685,7 +675,7 @@
       <updated>1493047779153</updated>
       <workItem from="1493047780545" duration="3533000" />
       <workItem from="1493131265240" duration="10454000" />
-      <workItem from="1493217771935" duration="17844000" />
+      <workItem from="1493217771935" duration="17963000" />
     </task>
     <task id="LOCAL-00001" summary="虽然幼稚，但伟大的第一步">
       <created>1493221431636</created>
@@ -708,11 +698,18 @@
       <option name="project" value="LOCAL" />
       <updated>1493236506509</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="水过hardware和leak">
+      <created>1493237722382</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1493237722382</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31831000" />
+    <option name="totallyTimeSpent" value="31950000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -747,7 +744,8 @@
     <MESSAGE value="虽然幼稚，但伟大的第一步" />
     <MESSAGE value="持续肝basic部分" />
     <MESSAGE value="完成basic部分" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成basic部分" />
+    <MESSAGE value="水过hardware和leak" />
+    <option name="LAST_COMMIT_MESSAGE" value="水过hardware和leak" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1158,8 +1156,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/performance.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="26" column="21" lean-forward="true" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+        <state relative-caret-position="158">
+          <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
           <folding />
         </state>
       </provider>
