@@ -7,40 +7,37 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Go探针</title>
+  <title>Go云探针</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="http://nws.oss-cn-qingdao.aliyuncs.com/bootstrap.min.css" rel="stylesheet">
-  <style type="text/css">
-      body {
-          position: relative;
-      }
-  </style>
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/css/probe.css" rel="stylesheet">
 </head>
 
-<body data-spy="scroll" data-target="#navbar">
+<body>
 
 <!-- Fixed navbar -->
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="">Go探针</a>
+      <a class="navbar-brand" href="">Go云探针</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a href="#test">主页</a></li>
-        <li><a href="">About</a></li>
-        <li><a href="">课程</a></li>
+        <li class="active"><a href="/">基础</a></li>
+        <li><a href="/hardware">硬件</a></li>
+        <li><a href="/performance">性能</a></li>
+        <li><a href="/shell">Shell</a></li>
+        <li><a href="/leak">漏洞</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
 </nav>
 
-<div class="container">
+<div class="container container-main">
   <a id="test">abcabc</a>
 </div>
-
-<script src="http://nws.oss-cn-qingdao.aliyuncs.com/jquery.min.js"></script>
-<script src="http://nws.oss-cn-qingdao.aliyuncs.com/bootstrap.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
 </body>
 </html>

@@ -1,0 +1,49 @@
+body{
+    background-color: black;
+    overflow-x: hidden; 
+    overflow-y: auto; 
+}
+
+#main{
+    width: 100%;
+    font-size: 18px;
+    font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    font-weight: lighter;
+    color: white;
+    
+}
+
+.message_box{
+    position: relative;
+    margin-top:4px;
+    
+}
+
+.command_box{
+    position: relative;
+    margin-top:4px;
+}
+
+.command_box .command_title{
+    position: relative;
+    float: left;
+}
+
+.command_box .command_area input{
+    position: absolute;
+    border: 0;
+    
+    background-color: black;
+    width: 88%;
+    height: 30px;
+    top: -5.5px;
+    margin-left: 10px;
+    
+    color: white;
+    font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+#ticker{
+    color: white;
+}
