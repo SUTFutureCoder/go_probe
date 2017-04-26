@@ -35,9 +35,58 @@
 </nav>
 
 <div class="container container-main">
-  <a id="test">abcabc</a>
+  <div id="basic-stat">
+    <p><button type="button" id="button-cpu" class="btn btn-default btn-sm">CPU</button></p>
+    <div class="progress">
+      <div class="progress-bar" id="progress-cpu" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;">
+        0%
+      </div>
+    </div>
+    <p><button type="button" id="button-mem" class="btn btn-default btn-sm">MEM</button></p>
+    <div class="progress">
+      <div class="progress-bar" id="progress-mem" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;">
+        0%
+      </div>
+    </div>
+    <p><button type="button" id="button-disk" class="btn btn-default btn-sm">DISK</button></p>
+    <div class="progress">
+      <div class="progress-bar" id="progress-disk" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;">
+        0%
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div id="hostinfo">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>系统信息</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="hostinfo-table">
+
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="modal fade bs-example-modal-lg" id="modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" style="display: none;">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="mySmallModalLabel"></h4>
+        </div>
+        <div class="modal-body">
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
 </div>
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="static/js/basic/basic.js"></script>
 </body>
 </html>

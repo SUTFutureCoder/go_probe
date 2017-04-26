@@ -6,10 +6,8 @@ import (
     "github.com/shirou/gopsutil/cpu"
     "github.com/shirou/gopsutil/host"
     "time"
-    "fmt"
     "github.com/shirou/gopsutil/net"
     "github.com/shirou/gopsutil/disk"
-    //"encoding/json"
     //"github.com/shirou/gopsutil/process"
 )
 
@@ -19,60 +17,60 @@ type MainController struct {
 
 
 type BasicInfo struct {
-    Mem_info *mem.VirtualMemoryStat `json:"mem_info"`
+    MemInfo    *mem.VirtualMemoryStat  `json:"mem_info"`
+    CpuPercent []float64               `json:"cpu_percent"`
+    DiskInfo   *disk.UsageStat         `json:"disk_info"`
+    HostInfo   *host.InfoStat          `json:"host_info"`
+    NetInfo    []net.IOCountersStat     `json:"net_info"`
 }
 
 func (c *MainController) Get() {
-    test_2 := struct {
-        Vm []*mem.VirtualMemoryStat
-    }{}
-    var basicinfo BasicInfo
-    temp, _ := mem.VirtualMemory()
-    basicinfo.Mem_info = temp
-    test_2.Vm = append(test_2.Vm, temp)
-
-    fmt.Println(test_2)
-    c.Data["json"] = basicinfo
-    c.ServeJSON()
-    fmt.Println(basicinfo)
-
-    cpu_load_avg, _ := cpu.Percent(time.Second, false)
-    host_info, _ := host.Info()
-    disk, _ := disk.Usage("/")
-    net, _ := net.IOCounters(false)
-    fmt.Println(net)
-    fmt.Println(host_info)
-
-    //fmt.Println(mem_info)
-    fmt.Println(cpu_load_avg)
-    fmt.Println(disk)
 	c.TplName = "index.tpl"
 }
 
-
+/**
+    获取基础信息
+ */
 func (c *MainController) GetBasicInfo() {
-    test_2 := struct {
-        Vm []*mem.VirtualMemoryStat
-    }{}
-    temp, _ := mem.VirtualMemory()
-    test_2.Vm = append(test_2.Vm, temp)
-
-    fmt.Println(test_2)
-
-    cpu_load_avg, _ := cpu.Percent(time.Second, false)
-    host_info, _ := host.Info()
-    disk, _ := disk.Usage("/")
-    net, _ := net.IOCounters(false)
-    fmt.Println(net)
-    fmt.Println(host_info)
-
-    //fmt.Println(mem_info)
-    fmt.Println(cpu_load_avg)
-    fmt.Println(disk)
-
-    //c.Data["json"] = string(jsonData)
+    var basicinfo BasicInfo
+    basicinfo.MemInfo, _       = mem.VirtualMemory()
+    basicinfo.CpuPercent, _    = cpu.Percent(time.Second, false)
+    basicinfo.HostInfo, _      = host.Info()
+    basicinfo.DiskInfo, _      = disk.Usage("/")
+    basicinfo.NetInfo, _       = net.IOCounters(false)
+    c.Data["json"] = basicinfo
+    c.ServeJSON()
 }
 
+/**
+    获取详细信息
+ */
+type HardwareInfo struct {
+    MemInfo  *mem.VirtualMemoryStat     `json:"mem_info"`
+    MemSwapInfo *mem.SwapMemoryStat     `json:"mem_swap_info"`
+    CpuInfo  []cpu.InfoStat          `json:"cpu_info"`
+    DiskInfo map[string]disk.IOCountersStat   `json:"disk_info"`
+}
+func (c *MainController) GetHardWareInfo() {
+    var hardware string
+    var hardwareInfo HardwareInfo
+    c.Ctx.Input.Bind(&hardware, "hardware")
+
+    if hardware == "CPU" {
+        hardwareInfo.CpuInfo, _ = cpu.Info()
+    } else if hardware == "MEM" {
+        hardwareInfo.MemInfo, _ = mem.VirtualMemory()
+        hardwareInfo.MemSwapInfo, _ = mem.SwapMemory()
+    } else if hardware == "DISK" {
+        hardwareInfo.DiskInfo, _ = disk.IOCounters()
+    }
+    c.Data["json"] = hardwareInfo
+    c.ServeJSON()
+}
+
+/**
+    轮询接口
+ */
 //轮询接口
 //func (c *MainController) Poll() {
 //    mem_info, _ := mem.VirtualMemory()
