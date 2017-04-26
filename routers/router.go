@@ -13,7 +13,8 @@ func init() {
     //获取基本硬件详情数据接口
     beego.Router("/basic/info", &controllers.MainController{}, "get,post:GetHardWareInfo")
 
-
+    //硬件部分
+    beego.Router("/hardware",   &controllers.HardwareController{});
 
 
     //shell页
@@ -21,4 +22,10 @@ func init() {
     //执行shell
     beego.Router("/shell/command", &controllers.ShellController{}, "post:Command")
 
+
+    //漏洞检测
+    beego.Router("/leak", &controllers.LeakController{})
+
+    //性能测试
+    beego.Router("/performance", &controllers.PerformanceController{})
 }

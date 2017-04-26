@@ -28,11 +28,11 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a href="/">基础</a></li>
-        <li><a href="/hardware">硬件</a></li>
+        <li><a href="/">状态</a></li>
+        <!-- <li><a href="/hardware">硬件</a></li> -->
         <li><a href="/performance">性能</a></li>
         <li class="active"><a href="/shell">Shell</a></li>
-        <li><a href="/leak">漏洞</a></li>
+        <li><a href="/leak">漏洞检测</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
