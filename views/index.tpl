@@ -38,7 +38,7 @@
   <div id="basic-stat">
     <p><button type="button" id="button-cpu" class="btn btn-default btn-sm">CPU</button></p>
     <div class="progress">
-      <div class="progress-bar" id="progress-cpu" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;">
+      <div class="progress-bar progress-bar-success" id="progress-cpu" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;">
         0%
       </div>
     </div>
@@ -54,6 +54,29 @@
         0%
       </div>
     </div>
+    <div>
+      <p><button type="button" id="button-net" class="btn btn-default btn-sm">NET</button></p>
+      <table id="table-net" class="table">
+        <tbody>
+          <tr>
+            <th>接收</th>
+            <th>发送</th>
+            <th>接受包</th>
+            <th>发送包</th>
+            <th>错误包</th>
+            <th>丢弃包</th>
+          </tr>
+        <tr>
+          <td id="net-recv"></td>
+          <td id="net-sent"></td>
+          <td id="net-recvP"></td>
+          <td id="net-sentP"></td>
+          <td id="net-errP"></td>
+          <td id="net-droP"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
   <hr>
   <div id="hostinfo">
@@ -65,6 +88,17 @@
         </tr>
       </thead>
       <tbody id="hostinfo-table">
+
+      </tbody>
+    </table>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>用户信息</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="hostinfo-user-table">
 
       </tbody>
     </table>

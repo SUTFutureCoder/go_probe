@@ -14,6 +14,8 @@ func init() {
     beego.Router("/basic/info", &controllers.MainController{}, "get,post:GetHardWareInfo")
 
 
+
+
     //shell页
     beego.Router("/shell", &controllers.ShellController{})
     //执行shell

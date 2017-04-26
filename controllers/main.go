@@ -21,6 +21,7 @@ type BasicInfo struct {
     CpuPercent []float64               `json:"cpu_percent"`
     DiskInfo   *disk.UsageStat         `json:"disk_info"`
     HostInfo   *host.InfoStat          `json:"host_info"`
+    HostInfoUser []host.UserStat        `json:"host_info_user"`
     NetInfo    []net.IOCountersStat     `json:"net_info"`
 }
 
@@ -36,6 +37,7 @@ func (c *MainController) GetBasicInfo() {
     basicinfo.MemInfo, _       = mem.VirtualMemory()
     basicinfo.CpuPercent, _    = cpu.Percent(time.Second, false)
     basicinfo.HostInfo, _      = host.Info()
+    basicinfo.HostInfoUser, _  = host.Users()
     basicinfo.DiskInfo, _      = disk.Usage("/")
     basicinfo.NetInfo, _       = net.IOCounters(false)
     c.Data["json"] = basicinfo
@@ -50,6 +52,7 @@ type HardwareInfo struct {
     MemSwapInfo *mem.SwapMemoryStat     `json:"mem_swap_info"`
     CpuInfo  []cpu.InfoStat          `json:"cpu_info"`
     DiskInfo map[string]disk.IOCountersStat   `json:"disk_info"`
+    NetInfo  []net.IOCountersStat        `json:"net_info"`
 }
 func (c *MainController) GetHardWareInfo() {
     var hardware string
@@ -63,6 +66,8 @@ func (c *MainController) GetHardWareInfo() {
         hardwareInfo.MemSwapInfo, _ = mem.SwapMemory()
     } else if hardware == "DISK" {
         hardwareInfo.DiskInfo, _ = disk.IOCounters()
+    } else if hardware == "NET" {
+        hardwareInfo.NetInfo,  _ = net.IOCounters(true)
     }
     c.Data["json"] = hardwareInfo
     c.ServeJSON()
