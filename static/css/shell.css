@@ -16,12 +16,15 @@ body{
 .message_box{
     position: relative;
     margin-top:4px;
-    
+    height: 25px;
+    text-align: left;
 }
 
 .command_box{
     position: relative;
     margin-top:4px;
+    margin-bottom: 10px;
+    height: 25px;
 }
 
 .command_box .command_title{
@@ -36,8 +39,9 @@ body{
     background-color: black;
     width: 88%;
     height: 30px;
-    top: -5.5px;
+    top: -2px;
     margin-left: 10px;
+    margin-bottom: 10px;
     
     color: white;
     font-family: 'Trebuchet MS', Helvetica, sans-serif;

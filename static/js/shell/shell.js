@@ -9,7 +9,7 @@ var current_dir = "~";
 function AddMessageBox() {
     var data = arguments[0] ? arguments[0] : "";
     var color = arguments[1] ? arguments[1] : "white";
-    $("#main").append("<br/><div class=\"message_box\" style=\"color:" + color + "\">" + data + "</div>");
+    $("#main").append("<div class=\"message_box\" style=\"color:" + color + "\">" + data + "</div>");
     $('html, body, #main').animate({scrollTop: $(document).height()}, 0); 
 }
 
@@ -17,7 +17,7 @@ function AddMessageBox() {
 function AddTickerMessageBox() {
     var data = arguments[0] ? arguments[0] : "";
     var color = arguments[1] ? arguments[1] : "white";
-    $("#main").append("<br/><div class=\"message_box ticker\" style=\"color:" + color + "\">" + data + "</div>");
+    $("#main").append("<div class=\"message_box ticker\" style=\"color:" + color + "\">" + data + "</div>");
     $('html, body, #main').animate({scrollTop: $(document).height()}, 0); 
 }
 
@@ -30,7 +30,7 @@ function AddCommandBox() {
 ////        user_name = "lin@lin-SUTACM:~$";
 //    }
 
-    $("#main").append("<br/><div class=\"command_box\"><div class=\"command_title\"><p>" + user_name + ":" + current_dir + "$</p></div><div class=\"command_area\"><input type=\"text\" name=\"command\"></div></div>");
+    $("#main").append("<div class=\"command_box\"><div class=\"command_title\"><p>" + user_name + ":" + current_dir + "$</p></div><div class=\"command_area\"><input type=\"text\" name=\"command\"></div></div>");
     $("input:last").focus();
     $('html, body, #main').animate({scrollTop: $(document).height()}, 0); 
 }
@@ -40,7 +40,7 @@ function AddAnyCommandBox() {
     var title = arguments[0] ? arguments[0] : "";
     var command_function = arguments[1] ? arguments[1] : "";
     var type = arguments[2] ? arguments[2] : "text";
-    $("#main").append("<br/><div class=\"command_box\"><div class=\"command_title\" id=\"" + title + "\"><p>" + title + "</p></div><div class=\"command_area\"><input type=\"" + type + "\" func=\"" + command_function + "\" name=\"command\"></div></div>");
+    $("#main").append("<div class=\"command_box\"><div class=\"command_title\" id=\"" + title + "\"><p>" + title + "</p></div><div class=\"command_area\"><input type=\"" + type + "\" func=\"" + command_function + "\" name=\"command\"></div></div>");
     $("input:last").focus();
     $('html, body, #main').animate({scrollTop: $(document).height()}, 0); 
 }
