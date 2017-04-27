@@ -30,6 +30,10 @@
         <li><a href="/shell">Shell</a></li>
         <li><a href="/leak">漏洞检测</a></li>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <!-- <li class="active"><a href="./"></a></li> -->
+        <li><a id="login_button" href="https://github.com/SUTFutureCoder/go_probe" target="_blank">©*Chen@GIT</a></li>
+      </ul>
     </div><!--/.nav-collapse -->
   </div>
 </nav>
