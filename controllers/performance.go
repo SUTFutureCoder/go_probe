@@ -9,7 +9,6 @@ import (
     "net/http"
     "bytes"
     "io/ioutil"
-    "fmt"
 )
 
 type PerformanceController struct {

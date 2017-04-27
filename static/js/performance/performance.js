@@ -55,8 +55,9 @@
                 dataType: 'json',
                 success: function (data) {
                     console.log(data);
+                    dom.performance_cloud.find('#performance-cloud-test-btn').remove();
                     var cloud_table = dom.performance_cloud.find('#performance-cloud-table');
-                    cloud_table.toggle();
+                    cloud_table.show();
                     //加载名次
                     cloud_table.find("#performance-cloud-table-rank").html(data.rank);
 
@@ -66,8 +67,8 @@
                     //同一dom操作
                     var dom_ace = '';
                     dom_ace += "<tr><td><b>" + param.host_id + "</b></td><td>" + data.ace[0].host_id + "</td></tr>";
-                    dom_ace += "<tr><td><b>" + param.test_int / 1000 / 1000 + "s</b></td><td>" + data.ace[0].test_int + "</td></tr>";
-                    dom_ace += "<tr><td><b>" + param.test_float + "</b></td><td>" + data.ace[0].test_float + "</td></tr>";
+                    dom_ace += "<tr><td><b>" + param.test_int + "</b></td><td>" + data.ace[0].test_int / 1000 / 1000 + "s</td></tr>";
+                    dom_ace += "<tr><td><b>" + param.test_float + "</b></td><td>" + data.ace[0].test_float / 1000 / 1000 + "s</td></tr>";
                     dom_ace += "<tr><td><b>" + param.test_io + "</b></td><td>" + data.ace[0].test_io + "</td></tr>";
                     dom_ace += "<tr><td><b>" + param.os + "</b></td><td>" + data.ace[0].os + "</td></tr>";
                     dom_ace += "<tr><td><b>" + param.platform + "</b></td><td>" + data.ace[0].platform + "</td></tr>";

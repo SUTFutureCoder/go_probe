@@ -68,10 +68,10 @@
             <tr><td></td><td></td></tr>
             <tr id="performance-cloud-table-rank-ace"><td><b>第一名配置</b></td><td></td></tr>
             <tr><td></td><td></td></tr>
-            <tr id="performance-cloud-table-rank-up-two"><td><b>您前两名配置</b></td><td></td></tr>
+            <!-- <tr id="performance-cloud-table-rank-up-two"><td><b>您前两名配置</b></td><td></td></tr>
             <tr><td></td><td></td></tr>
             <tr id="performance-cloud-table-rank-down-two"><td><b>您后两名配置</b></td><td></td></tr>
-            <tr><td></td><td></td></tr>
+            <tr><td></td><td></td></tr>-->
           </tbody>
         </table>
       </div>
