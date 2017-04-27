@@ -231,7 +231,7 @@
             "mhz":          "核心频率",
             "microcode":    "微指令",
             "model":        "系列中代号",
-            "modelName":    "名字、编号、主频",
+            "modelName":    "CPU标称",
             "physicalId":   "单个CPU标号",
             "stepping":     "制作更新版本",
             "vendorId":     "CPU制造商"

@@ -38,12 +38,12 @@
   <div class="panel panel-default">
     <div class="panel-body">
       <div id="performance-local">
-        <button id="performance-local-test-btn" type="button" class="btn btn-primary btn-lg btn-block">3千万级性能测试</button>
+        <button id="performance-local-test-btn" type="button" class="btn btn-primary btn-lg btn-block">十亿级性能测试</button>
         <table class="table table-hover" id="performance-table">
           <thead>
             <th>整型性能</th>
             <th>浮点性能</th>
-            <th>IO性能</th>
+            <!-- <th>IO性能</th> -->
           </thead>
           <tbody>
             <tr>
@@ -61,8 +61,18 @@
       <div id="performance-cloud">
         <div class="alert alert-warning" role="alert"><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>当您点击下方按钮时，表示您同意将您的机器性能及硬件数据上传至云端并参与排名比对。</div>
         <button id="performance-cloud-test-btn" type="button" class="btn btn-success btn-lg btn-block">云性能比对</button>
-        <table class="table table-hover" id="performance-table">
-
+        <br/>
+        <table class="table table-hover" id="performance-cloud-table" style="display: none">
+          <tbody>
+            <tr><td><b>您的排名</b></td><td id="performance-cloud-table-rank"></td></tr>
+            <tr><td></td><td></td></tr>
+            <tr id="performance-cloud-table-rank-ace"><td><b>第一名配置</b></td><td></td></tr>
+            <tr><td></td><td></td></tr>
+            <tr id="performance-cloud-table-rank-up-two"><td><b>您前两名配置</b></td><td></td></tr>
+            <tr><td></td><td></td></tr>
+            <tr id="performance-cloud-table-rank-down-two"><td><b>您后两名配置</b></td><td></td></tr>
+            <tr><td></td><td></td></tr>
+          </tbody>
         </table>
       </div>
     </div>
