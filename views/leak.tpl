@@ -51,10 +51,22 @@
           <div class="col-sm-offset-2 col-sm-10">
             <div class="checkbox">
               <label>
-                <input type="checkbox">SQL注入<br>
-                <input type="checkbox">CSRF攻击<br>
-                <input type="checkbox">XSS攻击<br>
-                <input type="checkbox">弱密码猜测<br>
+                <input type="checkbox">SQL注入
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox">CSRF攻击
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox">XSS攻击
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox">弱密码猜测
               </label>
             </div>
           </div>

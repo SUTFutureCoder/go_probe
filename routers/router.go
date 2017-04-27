@@ -28,4 +28,7 @@ func init() {
 
     //性能测试
     beego.Router("/performance", &controllers.PerformanceController{})
+    beego.Router("/performance/int", &controllers.PerformanceController{}, "get,post:TestInt")
+    beego.Router("/performance/float", &controllers.PerformanceController{}, "get,post:TestFloat")
+    beego.Router("/performance/cloud", &controllers.PerformanceController{}, "get,post:GetCloud")
 }

@@ -35,6 +35,38 @@
 </nav>
 
 <div class="container container-main">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div id="performance-local">
+        <button id="performance-local-test-btn" type="button" class="btn btn-primary btn-lg btn-block">3千万级性能测试</button>
+        <table class="table table-hover" id="performance-table">
+          <thead>
+            <th>整型性能</th>
+            <th>浮点性能</th>
+            <th>IO性能</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="performance-int"></td>
+              <td id="performance-float"></td>
+              <td id="performance-io"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div id="performance-cloud">
+        <div class="alert alert-warning" role="alert"><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>当您点击下方按钮时，表示您同意将您的机器性能及硬件数据上传至云端并参与排名比对。</div>
+        <button id="performance-cloud-test-btn" type="button" class="btn btn-success btn-lg btn-block">云性能比对</button>
+        <table class="table table-hover" id="performance-table">
+
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>

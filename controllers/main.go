@@ -33,6 +33,10 @@ func (c *MainController) Get() {
     获取基础信息
  */
 func (c *MainController) GetBasicInfo() {
+    c.Data["json"] = GetBasicInfoExec()
+    c.ServeJSON()
+}
+func GetBasicInfoExec() BasicInfo{
     var basicinfo BasicInfo
     basicinfo.MemInfo, _       = mem.VirtualMemory()
     basicinfo.CpuPercent, _    = cpu.Percent(time.Second, false)
@@ -40,8 +44,7 @@ func (c *MainController) GetBasicInfo() {
     basicinfo.HostInfoUser, _  = host.Users()
     basicinfo.DiskInfo, _      = disk.Usage("/")
     basicinfo.NetInfo, _       = net.IOCounters(false)
-    c.Data["json"] = basicinfo
-    c.ServeJSON()
+    return basicinfo
 }
 
 /**
@@ -56,9 +59,12 @@ type HardwareInfo struct {
 }
 func (c *MainController) GetHardWareInfo() {
     var hardware string
-    var hardwareInfo HardwareInfo
     c.Ctx.Input.Bind(&hardware, "hardware")
-
+    c.Data["json"] = GetHardWareInfoExec(hardware)
+    c.ServeJSON()
+}
+func GetHardWareInfoExec(hardware string) HardwareInfo{
+    var hardwareInfo HardwareInfo
     if hardware == "CPU" {
         hardwareInfo.CpuInfo, _ = cpu.Info()
     } else if hardware == "MEM" {
@@ -68,9 +74,14 @@ func (c *MainController) GetHardWareInfo() {
         hardwareInfo.DiskInfo, _ = disk.IOCounters()
     } else if hardware == "NET" {
         hardwareInfo.NetInfo,  _ = net.IOCounters(true)
+    } else {
+        hardwareInfo.CpuInfo, _ = cpu.Info()
+        hardwareInfo.MemInfo, _ = mem.VirtualMemory()
+        hardwareInfo.MemSwapInfo, _ = mem.SwapMemory()
+        hardwareInfo.DiskInfo, _ = disk.IOCounters()
+        hardwareInfo.NetInfo,  _ = net.IOCounters(true)
     }
-    c.Data["json"] = hardwareInfo
-    c.ServeJSON()
+    return hardwareInfo
 }
 
 /**
