@@ -4,6 +4,8 @@ var logined  = 1;
 var exec_end = 0;
 //设置dir
 var current_dir = "~";
+//重定位到~
+$.LS.set("vs_last_dir", "~");
 
 //动态添加消息
 function AddMessageBox() {
@@ -181,46 +183,61 @@ function ShellCommand(command) {
         default:
             //非命令集，发送到服务器
             //解析cd 开头，放入localstorage里面
+            var last_dir = ""; //提升作用域
             if (undefined != $.LS.get("vs_last_dir")) {
                 last_dir = $.LS.get("vs_last_dir");
+                // if (last_dir.length > 1 && last_dir.substr(last_dir.length - 1) == "/") {
+                //     //消除最后一个/
+                //     last_dir = last_dir.substr(0, last_dir.length - 2);
+                // }
             } else {
                 last_dir = "~"
             }
 
             temp_get_dir = command.split(" ");
+            var cd_command  = "";
             if (temp_get_dir[0] == "cd"){
-                last_dir = temp_get_dir[1];
+                //以下是过滤逻辑
+                //过滤空格
+                len_temp_get_dir = temp_get_dir.length;
+                for (var i = 1; i < len_temp_get_dir; ++i){
+                    if (temp_get_dir[i] != undefined && temp_get_dir[i].length && ' ' != temp_get_dir[i]){
+                        cd_command = temp_get_dir[i];
+                        break;
+                    }
+                }
 
-                // //过滤空格
-                // var temp_cd_command = "";
-                // len_temp_get_dir = temp_get_dir.length;
-                // for (var i = 1; i < len_temp_get_dir; ++i){
-                //     if (len_temp_get_dir[i] != undefined && len_temp_get_dir[i].length){
-                //         temp_cd_command = len_temp_get_dir[i];
-                //         break;
-                //     }
-                // }
-                //
-                //
-                // //判断第一个是./ ../ / 还是空
-                // if ('./' == temp_cd_command.substr(0, 2)){
-                //     //这个意思是将索引2及以后拼在旧的路径上
-                //     last_dir = last_dir + temp_cd_command.substr(2);
-                // } else if ('../' == temp_cd_command.substr(0, 3)){
-                //     //这个意思是将索引2及以后拼在旧的路径上
-                //     last_dir = last_dir + temp_cd_command.substr(3);
-                // } else if ('/' == temp_cd_command.substr(0, 1)){
-                //     //清除记录，直接到根
-                //     last_dir = temp_cd_command;
-                // } else {
-                //     //和./作用一致
-                //     last_dir = last_dir + temp_cd_command;
-                // }
+                if (cd_command == ""){
+                    cd_command = "~"
+                }
+
+                //判断第一个是./ ../ / 还是空
+                if ('./' == cd_command.substr(0, 2)){
+                    //这个意思是将索引2及以后拼在旧的路径上
+                    cd_command = last_dir + "/" + cd_command.substr(2);
+                } else if ('../' == cd_command.substr(0, 3) || '..' == cd_command.substr(0, 2)){
+                    //这个意思是将索引2及以后拼在旧的路径上
+                    temp_last_dir_command = last_dir.split("/");
+                    // console.log(temp_last_dir_command);
+                    do {
+                        var temp_pop_data = temp_last_dir_command.pop();
+                    } while (temp_pop_data == "");
+
+                    // console.log(temp_last_dir_command);
+                    last_dir = temp_last_dir_command.join("/");
+                    // console.log(last_dir);
+                    cd_command = last_dir + "/" + cd_command.substr(3);
+                    // console.log(cd_command);
+                } else if ("/" == cd_command.substr(0, 1)){
+                    cd_command = "/" + cd_command.substr(1);
+                } else if ("~" != cd_command){
+                    cd_command = last_dir + "/" + cd_command;
+                }
 
                 //这里有问题，时间紧迫，先不管了
-                $.LS.set("vs_last_dir", last_dir);
+                $.LS.set("vs_last_dir", cd_command);
                 //切换name
-                current_dir = last_dir;
+                current_dir = cd_command;
             }
 
             $.ajax({

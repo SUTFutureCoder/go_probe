@@ -53,7 +53,7 @@
             <tr>
               <td id="performance-int"></td>
               <td id="performance-float"></td>
-              <td id="performance-io"></td>
+              <!-- <td id="performance-io"></td> -->
             </tr>
           </tbody>
         </table>
